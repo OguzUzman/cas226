@@ -21,7 +21,7 @@ class AutocompleteTest extends FlatSpec{
     new Term("TDDD", 156))
 
   val shuffledTerms = scala.util.Random.shuffle(terms.toList).toArray
-  val reverseWeightSorted = shuffledTerms.sorted(ReverseWeightOrdering)
+  val reverseWeightSorted = shuffledTerms.sorted
   val matcher = new Autocomplete(reverseWeightSorted)
   assert(matcher.allMatches("AARTY").length == 0)
   assert(matcher.allMatches("AA").length == 4)
